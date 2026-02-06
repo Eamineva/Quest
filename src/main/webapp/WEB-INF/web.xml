@@ -38,12 +38,5 @@
         <url-pattern>/restart</url-pattern>
     </servlet-mapping>
 
-    <!-- Конфигурация JSTL -->
-    <jsp-config>
-        <taglib>
-            <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
-            <taglib-location>/WEB-INF</taglib-location>
-        </taglib>
-    </jsp-config>
 
 </web-app>

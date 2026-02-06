@@ -297,7 +297,8 @@
             ${step.description}
         </div>
 
-        <c:if test="${step.final}">
+
+        <c:if test="${step.finalStep}">
             <div class="status-message ${step.win ? 'success' : 'warning'}">
                 <c:choose>
                     <c:when test="${step.win}">
@@ -310,7 +311,7 @@
             </div>
         </c:if>
 
-        <c:if test="${!step.final}">
+        <c:if test="${not step.finalStep}">
             <form action="${pageContext.request.contextPath}/game" method="post">
                 <div class="choices-container">
                     <c:forEach var="choice" items="${step.choices}">
