@@ -26,14 +26,74 @@ public class Step implements Serializable {
         choices.put(id, new Choice(text, nextStepId));
     }
 
-    // Getters
-    public String getId() { return id; }
-    public String getTitle() { return title; }
-    public String getDescription() { return description; }
-    public Map<String, Choice> getChoices() { return choices; }
-    public boolean isFinal() { return isFinal; }
-    public boolean isWin() { return isWin; }
+    // Геттеры и сеттеры для стандартных свойств
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Map<String, Choice> getChoices() {
+        return choices;
+    }
+
+    public void setChoices(Map<String, Choice> choices) {
+        this.choices = choices;
+    }
+
+    // ВАЖНО: Геттеры и сеттеры для boolean свойств
+
+    // Для свойства isFinal - стандартный геттер
+    public boolean isFinal() {
+        return isFinal;
+    }
+
+    // Для EL (Expression Language) - альтернативный геттер
+    // Используйте в JSP: ${step.finalStep}
+    public boolean getFinalStep() {
+        return isFinal;
+    }
+
+    // Сеттер для isFinal
+    public void setFinal(boolean isFinal) {
+        this.isFinal = isFinal;
+    }
+
+    // Для свойства isWin - стандартный геттер
+    public boolean isWin() {
+        return isWin;
+    }
+
+    // Для EL - этот геттер будет использоваться при ${step.win}
+    public boolean getWin() {
+        return isWin;
+    }
+
+    // Сеттер для isWin
+    public void setWin(boolean isWin) {
+        this.isWin = isWin;
+    }
+
+    // Внутренний класс Choice
     public static class Choice implements Serializable {
         private String text;
         private String nextStepId;
@@ -43,7 +103,43 @@ public class Step implements Serializable {
             this.nextStepId = nextStepId;
         }
 
-        public String getText() { return text; }
-        public String getNextStepId() { return nextStepId; }
+        // Геттеры
+        public String getText() {
+            return text;
+        }
+
+        public String getNextStepId() {
+            return nextStepId;
+        }
+
+        // Сеттеры (опционально, но полезно)
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public void setNextStepId(String nextStepId) {
+            this.nextStepId = nextStepId;
+        }
+    }
+
+    // Дополнительные полезные методы
+
+    public boolean hasChoices() {
+        return choices != null && !choices.isEmpty();
+    }
+
+    public int getChoiceCount() {
+        return choices != null ? choices.size() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Step{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", isFinal=" + isFinal +
+                ", isWin=" + isWin +
+                ", choices=" + choices.size() +
+                '}';
     }
 }

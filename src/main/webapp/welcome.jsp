@@ -60,17 +60,32 @@
       margin-bottom: 15px;
     }
 
-    .requirements {
-      background-color: #FFF8E1;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      border-left: 5px solid #FF9800;
+    .story ul {
+      list-style: none;
+      padding-left: 20px;
     }
 
-    .requirements h3 {
-      color: #FF9800;
-      margin-top: 0;
+    .story li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .story li::before {
+      content: '✅';
+      position: absolute;
+      left: 0;
+    }
+
+    .warning {
+      color: #F44336;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #FFEBEE;
+      border-radius: 5px;
+      border: 1px solid #F44336;
     }
 
     .form-container {
@@ -90,6 +105,7 @@
       margin-bottom: 8px;
       color: #388E3C;
       font-weight: bold;
+      font-size: 1.1em;
     }
 
     input[type="text"] {
@@ -133,17 +149,6 @@
       margin-right: 10px;
     }
 
-    .warning {
-      color: #F44336;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #FFEBEE;
-      border-radius: 5px;
-      border: 1px solid #F44336;
-    }
-
     .beach-image {
       text-align: center;
       margin: 20px 0;
@@ -165,11 +170,11 @@
 
     <p><strong>Но чтобы добраться до моря, нужно:</strong></p>
     <ul>
-      <li>✅ Купить билет на самолет</li>
-      <li>✅ Собрать чемодан</li>
-      <li>✅ Не забыть паспорт</li>
-      <li>✅ Пройти контроль в аэропорту</li>
-      <li>✅ Не опоздать на рейс</li>
+      <li>Купить билет на самолет</li>
+      <li>Собрать чемодан</li>
+      <li>Не забыть паспорт</li>
+      <li>Пройти контроль в аэропорту</li>
+      <li>Не опоздать на рейс</li>
     </ul>
 
     <p>Каждый ваш выбор определяет, попадете ли вы на море или останетесь дома. Будьте внимательны!</p>
@@ -177,14 +182,9 @@
     <div class="warning">
       ⚠️ Внимание! Одно неверное решение - и ваша поездка может сорваться!
     </div>
-  </div>
 
-  <div class="requirements">
-    <h3>📋 Что вам понадобится:</h3>
-    <p>• Паспорт для заграничной поездки</p>
-    <p>• Деньги на билет и отдых</p>
-    <p>• Пляжные вещи в чемодане</p>
-    <p>• Хорошее настроение!</p>
+    <!-- БЛОК "ЧТО ВАМ ПОНАДОБИТСЯ" УДАЛЕН ЗДЕСЬ -->
+
   </div>
 
   <div class="form-container">
@@ -204,14 +204,6 @@
   <c:if test="${not empty gameState}">
     <div class="stats">
       <p>📊 Игр сыграно: <strong>${gameState.gamesPlayed}</strong></p>
-      <c:if test="${gameState.gamesPlayed > 0}">
-        <p>🎯 Лучший результат:
-          <c:choose>
-            <c:when test="${gameState.atSea}">Добрался до моря! 🏆</c:when>
-            <c:otherwise>Еще не был на море</c:otherwise>
-          </c:choose>
-        </p>
-      </c:if>
     </div>
   </c:if>
 </div>
