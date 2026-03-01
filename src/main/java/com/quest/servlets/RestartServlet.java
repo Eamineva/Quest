@@ -18,10 +18,10 @@ public class RestartServlet extends HttpServlet {
         super.init();
         gameService = new GameService();
     }
-    //для пул реквеста
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         HttpSession session = request.getSession();
         GameState gameState = (GameState) session.getAttribute("gameState");
         String playerName = request.getParameter("playerName");

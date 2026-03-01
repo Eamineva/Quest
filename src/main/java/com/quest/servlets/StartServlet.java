@@ -18,14 +18,14 @@ public class StartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         HttpSession session = request.getSession();
         String playerName = request.getParameter("playerName");
 
         if (playerName == null || playerName.trim().isEmpty()) {
             playerName = "Путешественник";
         }
-//для пул реквеста
+
         GameState gameState = (GameState) session.getAttribute("gameState");
         if (gameState == null) {
             gameState = new GameState(playerName);

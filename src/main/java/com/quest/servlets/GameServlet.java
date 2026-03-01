@@ -17,7 +17,7 @@ public class GameServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        gameService = new GameService(); // ОДИН раз при инициализации
+        gameService = new GameService();
     }
 
     @Override
@@ -38,20 +38,18 @@ public class GameServlet extends HttpServlet {
 
         String stepId = gameState.getCurrentStepId();
         System.out.println("Current stepId: " + stepId);
-        System.out.println("GameService instance: " + this.gameService); // ДОБАВЬТЕ
+        System.out.println("GameService instance: " + this.gameService);
 
-        // НЕ СОЗДАВАЙТЕ НОВЫЙ GameService! Используйте существующий:
-        Step step = this.gameService.getStep(stepId); // ИСПРАВЬТЕ ЭТУ СТРОКУ
+
+        Step step = this.gameService.getStep(stepId);
         System.out.println("Step object: " + step);
 
         if (step == null) {
             System.out.println("ERROR: Step is NULL for id: " + stepId);
-            // Получите шаг "start" из ТОГО ЖЕ gameService
             step = this.gameService.getStep("start");
             System.out.println("Fallback step: " + step);
         }
 
-        // Передайте атрибуты
         request.setAttribute("step", step);
         request.setAttribute("gameState", gameState);
 
@@ -74,17 +72,16 @@ public class GameServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/start");
             return;
         }
-//для пул реквеста
+
         String choice = request.getParameter("choice");
 
         if (choice != null) {
             Step nextStep = this.gameService.processChoice(gameState, choice);
 
             if (nextStep != null && nextStep.isFinal()) {
-                // Сохраняем в сессии
+
                 session.setAttribute("finalStep", nextStep);
 
-                // ПЕРЕДАЁМ АТРИБУТЫ И ПОКАЗЫВАЕМ result.jsp
                 request.setAttribute("finalStep", nextStep);
                 request.setAttribute("gameState", gameState);
                 request.getRequestDispatcher("/result.jsp").forward(request, response);
