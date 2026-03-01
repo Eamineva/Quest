@@ -49,7 +49,7 @@ public class GameServlet extends HttpServlet {
             System.out.println("Fallback step: " + step);
         }
 
-        //
+
         request.setAttribute("step", step);
         request.setAttribute("gameState", gameState);
 
