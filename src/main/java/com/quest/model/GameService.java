@@ -9,7 +9,7 @@ public class GameService {
     public GameService() {
         initializeSteps();
     }
-//
+
     private void initializeSteps() {
         // Начальный шаг
         Step start = new Step("start", "Начало приключения",

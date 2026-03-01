@@ -87,4 +87,4 @@ public class GameState implements Serializable {
         this.visitedSteps.clear();
         this.visitedSteps.add("start");
     }
-}//
+}
