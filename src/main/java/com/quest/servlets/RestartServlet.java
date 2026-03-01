@@ -18,7 +18,7 @@ public class RestartServlet extends HttpServlet {
         super.init();
         gameService = new GameService();
     }
-
+//
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

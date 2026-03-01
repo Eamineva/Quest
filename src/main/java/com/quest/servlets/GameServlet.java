@@ -19,7 +19,7 @@ public class GameServlet extends HttpServlet {
         super.init();
         gameService = new GameService();
     }
-
+//
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
