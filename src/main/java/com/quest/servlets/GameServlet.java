@@ -74,7 +74,7 @@ public class GameServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/start");
             return;
         }
-
+//для пул реквеста
         String choice = request.getParameter("choice");
 
         if (choice != null) {

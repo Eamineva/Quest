@@ -2,6 +2,7 @@ package com.quest.model;
 
 import java.util.HashMap;
 import java.util.Map;
+//для пул реквеста
 
 public class GameService {
     private Map<String, Step> steps = new HashMap<>();

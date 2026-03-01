@@ -29,6 +29,7 @@ public class GameState implements Serializable {
         this.atSea = false;
         this.gamesPlayed = 0;
         this.visitedSteps.add("start");
+        //для пул реквеста
     }
 
     // Getters and setters

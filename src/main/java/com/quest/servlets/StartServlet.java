@@ -25,7 +25,7 @@ public class StartServlet extends HttpServlet {
         if (playerName == null || playerName.trim().isEmpty()) {
             playerName = "Путешественник";
         }
-
+//для пул реквеста
         GameState gameState = (GameState) session.getAttribute("gameState");
         if (gameState == null) {
             gameState = new GameState(playerName);
