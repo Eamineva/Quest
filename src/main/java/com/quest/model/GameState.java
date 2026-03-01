@@ -3,7 +3,7 @@ package com.quest.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+//
 public class GameState implements Serializable {
     private String playerName;
     private String currentStepId;
