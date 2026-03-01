@@ -37,3 +37,4 @@ public class StartServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/game");
     }
 }
+//

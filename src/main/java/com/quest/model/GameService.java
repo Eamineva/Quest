@@ -20,7 +20,7 @@ public class GameService {
         start.addChoice("skip_ticket", "Решить купить билет позже", "lost_no_ticket");
         steps.put("start", start);
 
-        // Шаг с чемоданом (сразу после покупки билета)
+        // Шаг с чемоданом
         Step suitcaseStep = new Step("suitcase_step", "Сбор чемодана",
                 "Вы купили билет! Теперь нужно собрать чемодан. ",
                 false, false);
@@ -44,7 +44,7 @@ public class GameService {
         airportStep.addChoice("skip_security", "Попробовать пройти без контроля", "lost_security");
         steps.put("airport_step", airportStep);
 
-        // Шаг посадки (без отдельного шага рейса)
+        // Шаг посадки
         Step boardingStep = new Step("boarding_step", "Посадка в самолет",
                 "Вы прошли контроль безопасности! Начинается посадка на рейс.",
                 false, false);
@@ -122,7 +122,7 @@ public class GameService {
     private void updateGameState(GameState state, String choiceId, String nextStepId) {
         switch (state.getCurrentStepId()) {
             case "start":
-                // Если купили билет в первом шаге
+
                 if ("buy_ticket".equals(choiceId)) {
                     state.setHasTicket(true);
                 }
@@ -159,3 +159,4 @@ public class GameService {
         state.incrementGamesPlayed();
     }
 }
+//

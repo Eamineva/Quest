@@ -26,8 +26,6 @@ public class Step implements Serializable {
         choices.put(id, new Choice(text, nextStepId));
     }
 
-    // Геттеры и сеттеры для стандартных свойств
-
     public String getId() {
         return id;
     }
@@ -60,40 +58,30 @@ public class Step implements Serializable {
         this.choices = choices;
     }
 
-    // ВАЖНО: Геттеры и сеттеры для boolean свойств
-
-    // Для свойства isFinal - стандартный геттер
     public boolean isFinal() {
         return isFinal;
     }
 
-    // Для EL (Expression Language) - альтернативный геттер
-    // Используйте в JSP: ${step.finalStep}
     public boolean getFinalStep() {
         return isFinal;
     }
 
-    // Сеттер для isFinal
     public void setFinal(boolean isFinal) {
         this.isFinal = isFinal;
     }
 
-    // Для свойства isWin - стандартный геттер
     public boolean isWin() {
         return isWin;
     }
 
-    // Для EL - этот геттер будет использоваться при ${step.win}
     public boolean getWin() {
         return isWin;
     }
 
-    // Сеттер для isWin
     public void setWin(boolean isWin) {
         this.isWin = isWin;
     }
 
-    // Внутренний класс Choice
     public static class Choice implements Serializable {
         private String text;
         private String nextStepId;
@@ -103,7 +91,6 @@ public class Step implements Serializable {
             this.nextStepId = nextStepId;
         }
 
-        // Геттеры
         public String getText() {
             return text;
         }
@@ -112,7 +99,6 @@ public class Step implements Serializable {
             return nextStepId;
         }
 
-        // Сеттеры (опционально, но полезно)
         public void setText(String text) {
             this.text = text;
         }
@@ -121,8 +107,6 @@ public class Step implements Serializable {
             this.nextStepId = nextStepId;
         }
     }
-
-    // Дополнительные полезные методы
 
     public boolean hasChoices() {
         return choices != null && !choices.isEmpty();
@@ -143,3 +127,4 @@ public class Step implements Serializable {
                 '}';
     }
 }
+//
